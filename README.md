@@ -15,3 +15,31 @@ go build
 예: 파일 이름이 helloworld라면, 아래 커맨드로 실행한다
 ./helloworld
 ```
+
+### 변수
+변수 선언
+```
+var name = "test name"
+```
+
+상수 선언
+```
+const name = "const name"
+```
+
+대소문자 구분
+- 대문자: public
+- 소문자: private
+
+배열 선언
+```
+// 길이가 고정되어 있지 않은 배열 선언
+names := []string{"test1", "test2", "test3"}
+
+// 항목 추가
+names = append(names, "test4")
+
+// 초기 메모리 공간이 사이즈의 배열 선언
+// make 메서드 사용
+names := make([]string, 초기 사이즈)
+```
