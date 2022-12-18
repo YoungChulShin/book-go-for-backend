@@ -43,3 +43,20 @@ names = append(names, "test4")
 // make 메서드 사용
 names := make([]string, 초기 사이즈)
 ```
+
+### 함수
+기본 구조
+```
+func <<function name>>(<<variable name>> <<variable type>>) <return type> { }
+```
+
+defer 함수
+- 메서드가 실행되고 반환되기 직전에 호출되는 함수
+- 사용방법
+   - 기존 함수 호출: `defer <<function call>>`
+   - 인라인 함수: 
+      ```go
+      defer func() {
+        // content
+      }()
+      ```
