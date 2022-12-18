@@ -60,3 +60,37 @@ defer 함수
         // content
       }()
       ```
+### 구조체
+go는 객체지향프로그램이 아니다. 그래서 클래스 개념이 없고, 구조체가 있다. 
+
+구조체 샘플
+```go
+type User struct {
+	Name string
+	Age  int
+}
+```
+
+구조체 값 참조
+- 기본적으로는 값의 복사가 이루어 진다
+- `*`, `&` 키워드를 이용해서 참조로 변경할 수 있다
+   ```go
+   // 구현
+   func incrementAgeReference(user *User) { }
+
+   // 호출
+   incrementAgeReference(&myUser)
+   ```
+
+인스턴스 메서드
+- 익스텐션 메서드 같다
+- 구조체에 기능을 확장하는 함수를 추가하는 기능
+- 샘플 코드
+   ```go
+   // 구현
+   func (user User) prettyString() string {
+	return fmt.Sprintf("Pretty string %s", user.Name)
+   }
+   // 호출
+   myUser.prettyString()
+   ```
