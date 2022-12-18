@@ -36,6 +36,11 @@ func main() {
 	fmt.Println(runMathOps(a, b, sub))
 	fmt.Println(runMathOps(a, b, mul))
 	fmt.Println(runMathOps(a, b, div))
+
+	fmt.Println("===========================")
+	deferTest(5)
+	fmt.Println("===========================")
+	deferInlineTest(5)
 }
 
 func nameAndAge(userId uint) (string, int) {
@@ -59,3 +64,23 @@ func add(a int, b int) int { return a + b }
 func sub(a int, b int) int { return a - b }
 func mul(a int, b int) int { return a * b }
 func div(a int, b int) int { return a / b }
+
+// defer가 붙으면 마지막 결과를 반환하기 전에 결과를 실행한다
+func deferTest(x int) int {
+	defer fmt.Println(x)
+	y := x + 1
+	fmt.Println(y)
+	return y
+}
+
+func deferInlineTest(x int) int {
+	defer func() {
+		fmt.Println("defer start")
+		z := x - 1
+		fmt.Println(z)
+		fmt.Println("defer end")
+	}()
+	y := x + 1
+	fmt.Println(y)
+	return y
+}
